@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Masquer tout le footer copyright -->
+    <template id="hide_footer_copyright" inherit_id="web.frontend_layout">
+        <xpath expr="//div[hasclass('o_footer_copyright')]" position="replace"/>
+    </template>
+
+    <!-- Masquer "Powered by Odoo" dans le footer principal -->
+    <template id="hide_brand_promotion" inherit_id="web.brand_promotion">
+        <xpath expr="//div[hasclass('o_brand_promotion')]" position="replace"/>
+    </template>
+
+    <!-- Masquer "Powered by Odoo" dans la sidebar du portail -->
+    <template id="hide_portal_sidebar_branding" inherit_id="portal.portal_record_sidebar">
+        <xpath expr="//div[hasclass('text-center', 'text-muted')]" position="replace"/>
+    </template>
+</odoo>

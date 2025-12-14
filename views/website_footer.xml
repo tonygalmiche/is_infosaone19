@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Surcharge du footer par défaut avec les données de res.company -->
+    <record id="website.footer_custom" model="ir.ui.view">
+        <field name="arch" type="xml">
+            <data inherit_id="website.layout" name="Footer">
+                <xpath expr="//div[@id='footer']" position="replace">
+                    <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
+                        <section class="s_text_block pt16 pb8" data-name="Text block">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 pt0">
+                                        <h5 style="text-align: center;">
+                                            <i>
+                                                <span class="fa fa-phone" style="font-size: 14px;"/>
+                                                <font style="font-size: 14px;">&#160;<t t-esc="res_company.phone"/>&#160;-&#160;&#160;</font>
+                                                <span class="fa fa-envelope-o" style="font-size: 14px;"/>
+                                                <font style="font-size: 14px;">&#160;<t t-esc="res_company.email"/></font>
+                                                <br/>
+                                            </i>
+                                            <i>
+                                                <font style="font-size: 14px;">Intégrateur Odoo (CRM / ERP / GPAO / MES) en Bourgogne-Franche-Comté</font>
+                                                <br/>
+                                            </i>
+                                            <i>
+                                                <font style="font-size: 14px;">
+                                                    <t t-esc="res_company.company_registry"/> - 
+                                                    <t t-esc="res_company.street"/>
+                                                    <t t-if="res_company.zip"> <t t-esc="res_company.zip"/></t>
+                                                    <t t-if="res_company.city"> <t t-esc="res_company.city"/></t>
+                                                    - Tél : <t t-esc="res_company.phone"/>
+                                                </font>
+                                                <br/>
+                                            </i>
+                                            <i>
+                                                <font style="font-size: 14px;">
+                                                    R.C.S. DIJON <t t-esc="res_company.company_registry"/> - 
+                                                    N°SIRET : <t t-esc="res_company.company_registry or ''"/> - 
+                                                    N° TVA intracommunautaire : <t t-esc="res_company.vat or ''"/>
+                                                </font>
+                                                <br/>
+                                                <font style="font-size: 14px;"><a href="/mentions-legales">Mentions légales</a>&#160;-</font>
+                                                <a href="/contact">
+                                                    <font style="font-size: 14px;">&#160;Contactez-nous&#160;</font>
+                                                </a>
+                                                <br/>
+                                            </i>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </xpath>
+            </data>
+        </field>
+    </record>
+</odoo>

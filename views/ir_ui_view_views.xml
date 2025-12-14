@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_view_tree_inherit" model="ir.ui.view">
+        <field name="name">ir.ui.view.tree.inherit.is_infosaone19</field>
+        <field name="model">ir.ui.view</field>
+        <field name="inherit_id" ref="base.view_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="inherit_id" position="after">
+                <field name="is_origine_view_id"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

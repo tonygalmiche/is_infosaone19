@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- 
+        Option 1 : Désactiver complètement l'élément texte du header (numéro de téléphone)
+        Pour désactiver, mettre active="False"
+    -->
+    <record id="website.header_text_element" model="ir.ui.view">
+        <field name="active" eval="False"/>
+    </record>
+
+    <!-- 
+        Option 2 : Personnaliser le bouton "Contact Us" pour pointer vers /contact 
+        au lieu de /contactus (si vous avez créé une page /contact)
+    -->
+    <template id="header_call_to_action_custom" inherit_id="website.header_call_to_action" name="Header Call to Action - InfoSaône">
+        <xpath expr="//a[hasclass('btn_cta')]" position="attributes">
+            <!-- Changer le lien vers votre page de contact -->
+            <attribute name="href">/contact</attribute>
+        </xpath>
+        <xpath expr="//a[hasclass('btn_cta')]" position="replace">
+            <a href="/contact" class="oe_unremovable btn btn-primary btn_cta">Contactez-nous</a>
+        </xpath>
+    </template>
+
+    <!-- 
+        Option 3 : Si vous voulez personnaliser le numéro de téléphone au lieu de le cacher,
+        décommentez ce template et commentez l'Option 1 ci-dessus
+    -->
+    <!--
+    <template id="header_text_element_custom" inherit_id="website.header_text_element" name="Header Text element - InfoSaône">
+        <xpath expr="//a[@href='tel:+1 555-555-5556']" position="replace">
+            <a t-att-href="'tel:' + (res_company.phone or '')" class="nav-link o_nav-link_secondary p-2">
+                <i class="fa fa-1x fa-fw fa-phone me-1"/>
+                <span class="o_force_ltr"><small><t t-esc="res_company.phone"/></small></span>
+            </a>
+        </xpath>
+    </template>
+    -->
+
+</odoo>
